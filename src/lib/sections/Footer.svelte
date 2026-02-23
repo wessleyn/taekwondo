@@ -142,11 +142,11 @@
       class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4"
     >
       <p class="text-xs">
-        © 2025 Bandong Ryok I.T.F Taekwon-Do Club. All Rights Reserved.
+        © 2026 Bandong Ryok I.T.F Taekwon-Do Club. All Rights Reserved.
       </p>
       <p class="text-xs">
-        Designed with <span class="text-primary">♥</span> using SvelteKit + Tailwind
-        CSS
+        Made with <span class="text-primary">♥</span>  by <a href="https://wessleyn.me" target="_blank" class="hover:text-primary text-white">Wessley N.</a>
+        
       </p>
     </div>
   </div>

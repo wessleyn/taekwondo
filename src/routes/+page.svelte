@@ -7,11 +7,12 @@
   import Gallery from "$lib/sections/Gallery.svelte";
   import Hero from "$lib/sections/Hero.svelte";
   import Milestones from "$lib/sections/Milestones.svelte";
-  import Policies from "$lib/sections/Policies.svelte";
   import Pricing from "$lib/sections/Pricing.svelte";
   import Schedule from "$lib/sections/Schedule.svelte";
   import Sensei from "$lib/sections/Sensei.svelte";
   import Stats from "$lib/sections/Stats.svelte";
+  import TailoredClasses from "$lib/sections/TailoredClasses.svelte";
+  import Testimonials from "$lib/sections/Testimonials.svelte";
 </script>
 
 <svelte:head>
@@ -25,9 +26,10 @@
 <Hero />
 <Sensei />
 <Stats />
+<TailoredClasses />
 <Milestones />
 <Pricing />
+<Testimonials />
 <Schedule />
 <BookingForm />
-<Policies />
 <Gallery />

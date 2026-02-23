@@ -21,7 +21,7 @@
   ];
 
   const legalLinks = [
-    { label: "Policies", href: "#policies" },
+    { label: "Policies", href: "/policies" },
     { label: "Contact Us", href: "#contact" },
     { label: "About", href: "#milestones" },
     { label: "Gallery", href: "#gallery" },
@@ -68,7 +68,7 @@
             <li>
               <a
                 href={link.href}
-                class="text-sm hover:text-primary transition-colors"
+                class="text-sm hover:text-primary text-gray-400 transition-colors"
               >
                 {link.label}
               </a>
@@ -89,7 +89,7 @@
             <li>
               <a
                 href={link.href}
-                class="text-sm hover:text-primary transition-colors"
+                class="text-sm hover:text-primary text-gray-400 transition-colors"
               >
                 {link.label}
               </a>

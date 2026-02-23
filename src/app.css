@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+/*
+ * ──────────────────────────────────────────
+ *  Design Tokens / Color Palette
+ * ──────────────────────────────────────────
+ *
+ *  Primary (accent):   #E00F1C  — bold red
+ *  Secondary (dark):   #181818  — near-black
+ *  Tertiary (light):   #EAEAEA  — soft grey
+ *  Body background:    #FAFAFA  — off-white
+ *  Body text:          #5C5C5C  — mid-grey
+ *  Border accent:      #F6D7D9  — blush pink
+ *  White:              #FFFFFF
+ */
+
+@theme {
+  /* ── Colors ── */
+  --color-primary: #e00f1c;
+  --color-primary-dark: #b80c16;
+  --color-secondary: #181818;
+  --color-tertiary: #eaeaea;
+  --color-body-bg: #fafafa;
+  --color-body-text: #5c5c5c;
+  --color-border-accent: #f6d7d9;
+  --color-white: #ffffff;
+  --color-quaternary: #252525;
+
+  /* ── Fonts ── */
+  --font-heading: "Rajdhani", sans-serif;
+  --font-body: "Montserrat", sans-serif;
+}
+
+/* ── Base reset ── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-body-text);
+    background-color: var(--color-body-bg);
+    line-height: 1.6;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--color-secondary);
+    line-height: 1.16;
+  }
+
+  a {
+    color: var(--color-secondary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  a:hover {
+    color: var(--color-primary);
+  }
+}

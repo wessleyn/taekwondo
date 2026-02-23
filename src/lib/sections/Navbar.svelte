@@ -8,10 +8,11 @@
 
   const navLinks = [
     { label: "Home", href: "#hero" },
+    { label: "Instructor", href: "#sensei" },
     { label: "About", href: "#milestones" },
-    { label: "Classes", href: "#schedule" },
+    { label: "Schedule", href: "#schedule" },
     { label: "Pricing", href: "#pricing" },
-    { label: "Gallery", href: "#gallery" },
+    { label: "Policies", href: "#policies" },
     { label: "Contact", href: "#contact" },
   ];
 
@@ -36,11 +37,11 @@
       <a href="#hero" class="flex items-center gap-2 group">
         <span class="text-3xl">🥋</span>
         <span
-          class="text-2xl font-bold font-heading tracking-tight
+          class="text-xl font-bold font-heading tracking-tight
 					       {scrolled ? 'text-secondary' : 'text-white'}
 					       group-hover:text-primary transition-colors"
         >
-          Jackie
+          Bandong Ryok
         </span>
       </a>
 

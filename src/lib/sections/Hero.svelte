@@ -7,18 +7,18 @@
 
   const slides = [
     {
-      subtitle: "Refine Your Skills",
-      title: "Shaping Your\nKarate Future.",
+      subtitle: "Bandong Ryok I.T.F Taekwon-Do",
+      title: "Discipline.\nRespect. Power.",
       cta: "Read More",
     },
     {
       subtitle: "Building",
-      title: "Tomorrow's\nLeaders.",
+      title: "Tomorrow's\nChampions.",
       cta: "Explore More",
     },
     {
-      subtitle: "The Ultimate Karate",
-      title: "Taking Karate\nto Next Level.",
+      subtitle: "Train With Purpose",
+      title: "ITF Taekwondo\nExcellence.",
       cta: "Join Now",
     },
   ];

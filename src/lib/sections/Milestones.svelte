@@ -10,27 +10,27 @@
   const milestones = [
     {
       icon: "🥋",
-      title: "Belt Testing",
+      title: "ITF Patterns (Tul)",
       description:
-        "Structured progression through belt ranks with regular testing to measure discipline and skill growth.",
+        "Master the traditional patterns of ITF Taekwondo — building technique, discipline, and precision at every belt level.",
     },
     {
       icon: "🧠",
-      title: "Mental Resilience",
+      title: "Mental Discipline",
       description:
-        "Build unshakable focus, confidence, and inner strength through martial arts training and meditation.",
+        "Develop focus, respect, and self-improvement. We empower students to reach their full potential on and off the mat.",
     },
     {
-      icon: "⚔️",
-      title: "Weapons Training",
+      icon: "🦶",
+      title: "Sparring & Self-Defense",
       description:
-        "Master traditional weapons techniques including bo staff, nunchaku, and sai with expert instruction.",
+        "Train in controlled sparring and practical self-defense techniques under the guidance of a 3rd Dan instructor.",
     },
     {
       icon: "💪",
-      title: "Fitness Integration",
+      title: "Physical Fitness",
       description:
-        "Combine martial arts with modern fitness to build endurance, flexibility, and total-body strength.",
+        "Build endurance, flexibility, and total-body strength through rigorous Taekwondo conditioning drills.",
     },
   ];
 </script>

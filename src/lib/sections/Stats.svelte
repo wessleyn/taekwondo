@@ -6,11 +6,11 @@
   import CounterStat from "$lib/components/CounterStat.svelte";
 
   const stats = [
-    { target: 14, suffix: "K", label: "Black Belts Earned" },
-    { target: 4.9, suffix: "+", label: "Happy Members" },
-    { target: 35, suffix: "+", label: "Years Experience" },
-    { target: 120, suffix: "+", label: "Expert Trainers" },
-    { target: 50, suffix: "+", label: "Training Programs" },
+    { target: 10, suffix: "+", label: "Years Teaching" },
+    { target: 3, suffix: "rd Dan", label: "Instructor Rank" },
+    { target: 5, suffix: "", label: "Training Days / Week" },
+    { target: 100, suffix: "+", label: "Students Trained" },
+    { target: 2, suffix: "", label: "Sessions Daily" },
   ];
 </script>
 

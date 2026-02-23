@@ -67,12 +67,12 @@
       <!-- Left: Image -->
       <div class="relative flex justify-center">
         <div
-          class="relative w-80 h-80 lg:w-[420px] lg:h-[420px] rounded-full overflow-hidden
+          class="relative w-80 h-80 lg:w-105 lg:h-105 rounded-full overflow-hidden
 					       border-4 border-primary/20 shadow-2xl"
         >
           <!-- Placeholder for instructor photo -->
           <div
-            class="w-full h-full bg-gradient-to-br from-secondary via-secondary/90 to-primary/20
+            class="w-full h-full bg-linear-to-br from-secondary via-secondary/90 to-primary/20
 						       flex items-center justify-center"
           >
             <div class="text-center text-white">

@@ -25,8 +25,8 @@
   }
 
   const quickLinks = [
-    { label: "Home", href: "#hero" },
     { label: "Instructor", href: "#sensei" },
+    { label: "Students", href: "/students" },
     { label: "Schedule", href: "#schedule" },
     { label: "Pricing", href: "#pricing" },
   ];

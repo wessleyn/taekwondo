@@ -7,8 +7,8 @@
   let scrolled = $state(false);
 
   const navLinks = [
-    { label: "Home", href: "#hero" },
     { label: "Instructor", href: "#sensei" },
+    { label: "Students", href: "/students" },
     { label: "Pricing", href: "#pricing" },
     { label: "Contact", href: "#contact" },
   ];

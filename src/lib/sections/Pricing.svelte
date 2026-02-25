@@ -27,7 +27,7 @@
       unit: "month",
       features: [
         `${schedule.trainingDaysPerWeek} training days per week (${schedule.hoursDisplay.split(":")[0].trim()})`,
-        `Two sessions daily: ${schedule.sessions[0].shortTime} & ${schedule.sessions[1].shortTime}`,
+        `Two sessions daily`,
         `Instruction by ${instructor.rank} ${instructor.title}`,
       ],
       highlighted: true,

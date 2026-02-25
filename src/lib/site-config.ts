@@ -52,8 +52,8 @@ export const instructor = {
 
 export const contact = {
     email: "info@bandongryok.com",
-    phone: "+263  0710366407",
-    phoneDisplay: "0779212468",
+    phone: "+263  710366407",
+    phoneDisplay: "779212468",
     whatsapp: "+263 77 921 2468",
     location: "Citadel, Chitungwiza,  Harare, Zimbabwe",
 } as const;

@@ -1,10 +1,12 @@
 <script lang="ts">
+  import { page } from "$app/stores";
   import { brand, contact, instructor } from "$lib/site-config";
   import { fade, fly } from "svelte/transition";
 
   let mobileOpen = $state(false);
   let sidebarOpen = $state(false);
   let scrolled = $state(false);
+  let dark = $derived(scrolled || $page.url.pathname.startsWith("/students"));
 
   const navLinks = [
     { label: "Instructor", href: "#sensei" },
@@ -30,7 +32,7 @@
 
 <header
   class="fixed top-0 left-0 right-0 z-50 transition-all duration-300
-         {scrolled
+         {dark
     ? 'bg-white/70 backdrop-blur-lg shadow-lg border-b border-white/20'
     : 'bg-transparent'}"
 >
@@ -38,13 +40,13 @@
     <div class="flex items-center justify-between h-20">
       <a href="#hero" class="flex items-center gap-2 group">
         <img
-          src={scrolled ? brand.logos.dark : brand.logos.light}
+          src={dark ? brand.logos.dark : brand.logos.light}
           alt={brand.logoAlt}
           class="w-20 h-20 object-contain"
         />
         <span
           class="text-xl font-bold font-heading tracking-tight
-                 {scrolled ? 'text-secondary' : 'text-white'}
+                 {dark ? 'text-secondary' : 'text-white'}
                  group-hover:text-primary transition-colors"
         >
           {brand.name}
@@ -57,7 +59,7 @@
             <a
               href={link.href}
               class="text-sm font-medium uppercase tracking-wider
-                     {scrolled ? 'text-secondary' : 'text-white'}
+                     {dark ? 'text-secondary' : 'text-white'}
                      hover:text-primary transition-colors"
             >
               {link.label}
@@ -69,7 +71,7 @@
       <div class="flex items-center gap-4">
         <button
           class="hidden lg:flex flex-col justify-center items-end gap-1.5 w-10 h-10 group
-                 {scrolled
+                 {dark
             ? 'text-secondary hover:text-primary'
             : 'text-white hover:text-primary'} transition-colors"
           onclick={() => (sidebarOpen = true)}
@@ -87,7 +89,7 @@
         </button>
 
         <button
-          class="lg:hidden p-2 rounded-md transition-colors {scrolled
+          class="lg:hidden p-2 rounded-md transition-colors {dark
             ? 'text-secondary hover:bg-white/50'
             : 'text-white hover:bg-white/10'}"
           onclick={() => (mobileOpen = !mobileOpen)}

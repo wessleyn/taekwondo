@@ -3,13 +3,15 @@
   Feature card with icon, title, description
 -->
 <script lang="ts">
+  import type { ComponentType } from "svelte";
+
   interface Props {
-    icon: string;
+    icon: ComponentType;
     title: string;
     description: string;
   }
 
-  let { icon, title, description }: Props = $props();
+  let { icon: Icon, title, description }: Props = $props();
 </script>
 
 <div
@@ -23,7 +25,7 @@
 		       group-hover:bg-primary group-hover:text-white
 		       transition-all duration-300"
   >
-    {icon}
+    <Icon size={32} />
   </div>
   <h4 class="text-xl font-bold text-secondary mb-3">{title}</h4>
   <p class="text-body-text text-sm leading-relaxed">{description}</p>

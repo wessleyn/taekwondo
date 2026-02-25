@@ -34,7 +34,7 @@
     description:
       "Combining mental discipline with physical technique. Focus on patterns (Tul), self-defense, and sparring at advanced levels.",
     image:
-      "https://images.unsplash.com/photo-1555597673-b21d5c935865?w=600&h=700&fit=crop",
+      "/girl.jpeg",
     date: "Ongoing",
     author: "Sensei Yasini Saidi",
     covers: [
@@ -124,7 +124,7 @@
             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           />
           <div
-            class="absolute inset-0 bg-gradient-to-t from-quaternary via-quaternary/60 to-transparent"
+            class="absolute inset-0 bg-linear-to-t from-quaternary via-quaternary/60 to-transparent"
           ></div>
 
           <!-- Overlay text -->

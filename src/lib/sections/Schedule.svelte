@@ -10,22 +10,25 @@
     name: string;
     time: string;
     color: string;
+    duration: string;
   };
 
   const days = scheduleConfig.trainingDays;
 
-  const sessionEntries: ClassEntry[] = [
-    {
-      name: scheduleConfig.sessions[0].name,
-      time: scheduleConfig.sessions[0].time,
-      color: "bg-primary/10 text-primary",
-    },
-    {
-      name: scheduleConfig.sessions[1].name,
-      time: scheduleConfig.sessions[1].time,
-      color: "bg-secondary/10 text-secondary",
-    },
+  const sessionColors = [
+    "bg-primary/10 text-primary",
+    "bg-secondary/10 text-secondary",
+    "bg-amber-100 text-amber-700",
+    "bg-rose-100 text-rose-700",
+    "bg-emerald-100 text-emerald-700",
   ];
+
+  const sessionEntries: ClassEntry[] = scheduleConfig.sessions.map((s, i) => ({
+    name: s.name,
+    time: s.time,
+    color: sessionColors[i % sessionColors.length],
+    duration: s.duration,
+  }));
 
   const schedule: Record<string, ClassEntry[]> = Object.fromEntries(
     days.map((day) => [day, sessionEntries]),
@@ -54,36 +57,25 @@
           </tr>
         </thead>
         <tbody>
-          <!-- Row for first class -->
-          <tr>
-            {#each days as day}
-              <td class="px-3 py-3 border border-tertiary align-top">
-                {#if schedule[day]?.[0]}
-                  <div class="rounded-lg p-3 {schedule[day][0].color}">
-                    <p class="text-xs font-bold">{schedule[day][0].name}</p>
-                    <p class="text-xs opacity-70 mt-1">
-                      {schedule[day][0].time}
-                    </p>
-                  </div>
-                {/if}
-              </td>
-            {/each}
-          </tr>
-          <!-- Row for second class -->
-          <tr>
-            {#each days as day}
-              <td class="px-3 py-3 border border-tertiary align-top">
-                {#if schedule[day]?.[1]}
-                  <div class="rounded-lg p-3 {schedule[day][1].color}">
-                    <p class="text-xs font-bold">{schedule[day][1].name}</p>
-                    <p class="text-xs opacity-70 mt-1">
-                      {schedule[day][1].time}
-                    </p>
-                  </div>
-                {/if}
-              </td>
-            {/each}
-          </tr>
+          {#each sessionEntries as _, i}
+            <tr>
+              {#each days as day}
+                <td class="px-3 py-3 border border-tertiary align-top">
+                  {#if schedule[day]?.[i]}
+                    <div class="rounded-lg p-3 {schedule[day][i].color}">
+                      <p class="text-xs font-bold">{schedule[day][i].name}</p>
+                      <p class="text-xs opacity-70 mt-1">
+                        {schedule[day][i].time}
+                      </p>
+                      <p class="text-[10px] opacity-50 mt-0.5">
+                        {schedule[day][i].duration}
+                      </p>
+                    </div>
+                  {/if}
+                </td>
+              {/each}
+            </tr>
+          {/each}
         </tbody>
       </table>
     </div>

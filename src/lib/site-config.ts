@@ -62,13 +62,16 @@ export const contact = {
 
 export const schedule = {
     trainingDays: ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday"] as readonly string[],
-    hoursDisplay: "Sat–Wed: 5 PM – 9 PM",
+    hoursDisplay: "Sat–Wed: 5:00 PM – 7:05 PM",
     sessions: [
-        { name: "ITF Taekwondo — Session 1", time: "5:00 PM – 7:00 PM", shortTime: "5–7 PM" },
-        { name: "ITF Taekwondo — Session 2", time: "7:00 PM – 9:00 PM", shortTime: "7–9 PM" },
+        { name: "Warm Up", time: "5:00 PM – 5:30 PM", shortTime: "5:00–5:30 PM", duration: "30 min" },
+        { name: "Stretching", time: "5:30 PM – 6:00 PM", shortTime: "5:30–6:00 PM", duration: "30 min" },
+        { name: "Technique", time: "6:00 PM – 6:30 PM", shortTime: "6:00–6:30 PM", duration: "30 min" },
+        { name: "Sparring", time: "6:30 PM – 7:00 PM", shortTime: "6:30–7:00 PM", duration: "30 min" },
+        { name: "Warm Down", time: "7:00 PM – 7:05 PM", shortTime: "7:00–7:05 PM", duration: "5 min" },
     ],
     trainingDaysPerWeek: 5,
-    sessionsPerDay: 2,
+    sessionsPerDay: 5,
 } as const;
 
 // ── Pricing ─────────────────────────────────────

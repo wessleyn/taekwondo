@@ -54,6 +54,7 @@ export const contact = {
     email: "info@bandongryok.com",
     phone: "+263  0710366407",
     phoneDisplay: "+263 0779212468",
+    whatsapp: "+263 77 921 2468",
     location: "Citadel, Chitungwiza,  Harare, Zimbabwe",
 } as const;
 

@@ -7,9 +7,7 @@
     brand,
     contact,
     footer as footerConfig,
-    instructor,
-    schedule,
-    socials as socialLinks,
+    socials as socialLinks
   } from "$lib/site-config";
 
   let showScrollTop = $state(false);
@@ -122,12 +120,13 @@
             >
           </li>
           <li class="flex items-start gap-2">
-            <span class="text-primary mt-0.5">🕐</span>
-            <span>{schedule.hoursDisplay}</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-primary mt-0.5">🥋</span>
-            <span>Instructor: {instructor.fullName} ({instructor.rank})</span>
+            <span class="text-primary mt-0.5">💬</span>
+            <a
+              href="https://wa.me/{contact.whatsapp.replace(/\s+/g, '')}"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-primary text-gray-400 transition-colors">WhatsApp: {contact.whatsapp}</a
+            >
           </li>
         </ul>
 

@@ -13,7 +13,7 @@
       description:
         "Fun, structured ITF Taekwondo classes for children. Building confidence, discipline, and coordination from white belt onward.",
       image:
-        "https://images.unsplash.com/photo-1611605698335-8b1569810432?w=500&h=500&fit=crop",
+        "/kid-girl.jpeg",
       date: "Ages 5–12",
       author: instructor.shortName,
     },
@@ -23,7 +23,7 @@
       description:
         "Regular belt testing and grading ceremonies for all students. Demonstrate patterns, sparring, and theory knowledge.",
       image:
-        "https://images.unsplash.com/photo-1564415315949-7a0c4c73aab4?w=500&h=500&fit=crop",
+        "/hit.jpeg",
       date: "Quarterly",
       author: instructor.shortName,
     },

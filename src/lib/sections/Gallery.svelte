@@ -17,19 +17,19 @@
       alt: "Belt ceremony",
     },
     {
-      src: "/pose.jpeg",
+      src: "/block.jpeg",
       alt: "Group class",
     },
     {
-      src: "/fly.jpeg",
+      src: "/pose.jpeg",
       alt: "Sparring session",
     },
+    // {
+    //   src: "/champion.png",
+    //   alt: "Fitness training",
+    // },
     {
-      src: "/champion.png",
-      alt: "Fitness training",
-    },
-    {
-      src: "/discipline.png",
+      src: "/fly.jpeg",
       alt: "Meditation practice",
     },
   ];
@@ -39,7 +39,7 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <SectionHeading subtitle="Connect with Us" title="Catch Us on Insta" />
 
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mt-14">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 mt-14">
       {#each images as img}
         <a
           href={socials.instagram !== "#"

@@ -19,8 +19,7 @@
       name: "Amina",
       role: "Advanced Student",
       stars: 5,
-      // Added unique image for Amina
-      image: "https://images.unsplash.com/photo-1555597673-b21d5c935865?w=600&h=600&fit=crop",
+      image: "/boy.jpeg",
     },
     {
       quote: "Best Taekwondo club in the region",
@@ -28,8 +27,7 @@
       name: "Hassan",
       role: "Blue Belt",
       stars: 5,
-      // Added unique image for Hassan
-      image: "https://images.unsplash.com/photo-1580261450046-d0a30080dc9b?w=600&h=600&fit=crop",
+      image: "/two.jpeg",
     },
   ];
 

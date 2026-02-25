@@ -27,8 +27,8 @@
   --color-quaternary: #252525;
 
   /* ── Fonts ── */
-  --font-heading: "Rajdhani", sans-serif;
-  --font-body: "Montserrat", sans-serif;
+  --font-heading: "Kanit", sans-serif;
+  --font-body: "Inter", sans-serif;
 }
 
 /* ── Base reset ── */
@@ -51,9 +51,12 @@
   h5,
   h6 {
     font-family: var(--font-heading);
-    font-weight: 700;
+    font-weight: 800;
+    font-style: italic;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
     color: var(--color-secondary);
-    line-height: 1.16;
+    line-height: 1.1;
   }
 
   a {

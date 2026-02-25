@@ -21,7 +21,7 @@
     {subtitle}
   </span>
   <h2
-    class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight
+    class="text-4xl md:text-5xl lg:text-6xl font-extrabold italic uppercase tracking-wide leading-tight
 		       {light ? 'text-white' : 'text-secondary'}"
   >
     {title}

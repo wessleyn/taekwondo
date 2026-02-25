@@ -204,7 +204,7 @@
               ></div>
             </div>
             <h1
-              class="text-4xl sm:text-5xl lg:text-7xl font-bold text-white leading-tight mb-6 lg:mb-8 whitespace-pre-line"
+              class="text-4xl sm:text-5xl lg:text-7xl font-extrabold italic uppercase tracking-wide text-white leading-tight mb-6 lg:mb-8 whitespace-pre-line"
             >
               {slide.title}
             </h1>

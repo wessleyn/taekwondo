@@ -9,27 +9,27 @@
   // Using placeholder images since original are from WP CDN
   const images = [
     {
-      src: "https://images.unsplash.com/photo-1555597673-b21d5c935865?w=600&h=600&fit=crop",
+      src: "/tournament.jpeg",
       alt: "Karate training",
     },
     {
-      src: "https://images.unsplash.com/photo-1564415315949-7a0c4c73aab4?w=600&h=600&fit=crop",
+      src: "chill.jpeg",
       alt: "Belt ceremony",
     },
     {
-      src: "https://images.unsplash.com/photo-1611605698335-8b1569810432?w=600&h=600&fit=crop",
+      src: "/pose.jpeg",
       alt: "Group class",
     },
     {
-      src: "https://images.unsplash.com/photo-1514050566906-8d077bae7046?w=600&h=600&fit=crop",
+      src: "/fly.jpeg",
       alt: "Sparring session",
     },
     {
-      src: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&h=600&fit=crop",
+      src: "/champion.png",
       alt: "Fitness training",
     },
     {
-      src: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&h=600&fit=crop",
+      src: "/discipline.png",
       alt: "Meditation practice",
     },
   ];

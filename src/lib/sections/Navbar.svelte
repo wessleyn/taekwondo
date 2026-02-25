@@ -9,10 +9,10 @@
   let dark = $derived(scrolled || $page.url.pathname.startsWith("/students"));
 
   const navLinks = [
-    { label: "Instructor", href: "#sensei" },
+    { label: "Instructor", href: "/#sensei" },
     { label: "Students", href: "/students" },
-    { label: "Pricing", href: "#pricing" },
-    { label: "Contact", href: "#contact" },
+    { label: "Pricing", href: "/#pricing" },
+    { label: "Contact", href: "/#contact" },
   ];
 
   function handleScroll() {
@@ -38,7 +38,7 @@
 >
   <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-20">
-      <a href="#hero" class="flex items-center gap-2 group">
+      <a href="/#hero" class="flex items-center gap-2 group">
         <img
           src={dark ? brand.logos.dark : brand.logos.light}
           alt={brand.logoAlt}
@@ -142,7 +142,7 @@
         </ul>
         <div class="px-4 pt-2">
           <a
-            href="#contact"
+            href="/#contact"
             onclick={closeMobile}
             class="block text-center py-3 text-sm font-semibold uppercase tracking-wider
                    rounded-lg bg-primary text-white hover:bg-primary-dark transition-colors shadow-md"
@@ -218,7 +218,7 @@
         </p>
 
         <a
-          href="#contact"
+          href="/#contact"
           onclick={closeSidebar}
           class="inline-flex items-center justify-center w-full py-3 px-6 text-sm font-semibold uppercase tracking-wider
                  bg-secondary text-white rounded-lg hover:bg-primary transition-colors shadow-md"

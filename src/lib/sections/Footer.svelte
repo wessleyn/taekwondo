@@ -25,17 +25,17 @@
   }
 
   const quickLinks = [
-    { label: "Instructor", href: "#sensei" },
+    { label: "Instructor", href: "/#sensei" },
     { label: "Students", href: "/students" },
-    { label: "Schedule", href: "#schedule" },
-    { label: "Pricing", href: "#pricing" },
+    { label: "Schedule", href: "/#schedule" },
+    { label: "Pricing", href: "/#pricing" },
   ];
 
   const legalLinks = [
     { label: "Policies", href: "/policies" },
-    { label: "Contact Us", href: "#contact" },
-    { label: "About", href: "#milestones" },
-    { label: "Gallery", href: "#gallery" },
+    { label: "Contact Us", href: "/#contact" },
+    { label: "About", href: "/#milestones" },
+    { label: "Gallery", href: "/#gallery" },
   ];
 
   // 2. Update the socials array to hold the imported component reference, not a string
@@ -57,7 +57,7 @@
       class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10"
     >
       <div>
-        <a href="#hero" class="flex items-center gap-2 mb-4 group">
+        <a href="/#hero" class="flex items-center gap-2 mb-4 group">
           <img src="/logo.png" alt="Bandong Ryok Logo" class="w-12 h-12 object-contain" />
           <span class="text-xl font-bold font-heading text-white group-hover:text-primary transition-colors"
             >{brand.nameShort}</span

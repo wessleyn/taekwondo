@@ -116,7 +116,10 @@
         <ul class="space-y-3 text-sm">
           <li class="flex items-start gap-2">
             <span class="text-primary mt-0.5">✉️</span>
-            <span>{contact.email}</span>
+            <a
+              href="mailto:{contact.email}"
+              class="hover:text-primary text-gray-400 transition-colors">{contact.email}</a
+            >
           </li>
           <li class="flex items-start gap-2">
             <span class="text-primary mt-0.5">🕐</span>

@@ -239,12 +239,18 @@
           {#if contact.phone}
             <li class="flex items-center gap-3">
               <span>📞</span>
-              <span>{contact.phone}</span>
+              <a
+                href="tel:{contact.phone}"
+                class="hover:text-primary transition-colors">{contact.phone}</a
+              >
             </li>
           {/if}
           <li class="flex items-center gap-3">
             <span>✉️</span>
-            <span>{contact.email}</span>
+            <a
+              href="mailto:{contact.email}"
+              class="hover:text-primary transition-colors">{contact.email}</a
+            >
           </li>
         </ul>
       </div>

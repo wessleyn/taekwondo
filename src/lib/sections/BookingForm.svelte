@@ -54,7 +54,15 @@
               <p class="text-xs text-gray-400 uppercase tracking-wider">
                 Phone
               </p>
-              <p class="text-white font-medium">{contact.phoneDisplay}</p>
+              {#if contact.phone}
+                <a
+                  href="tel:{contact.phone}"
+                  class="text-white font-medium hover:text-primary transition-colors"
+                  >{contact.phone}</a
+                >
+              {:else}
+                <p class="text-white font-medium">{contact.phoneDisplay}</p>
+              {/if}
             </div>
           </div>
           <div class="flex items-center gap-4">
@@ -66,7 +74,11 @@
               <p class="text-xs text-gray-400 uppercase tracking-wider">
                 Email
               </p>
-              <p class="text-white font-medium">{contact.email}</p>
+              <a
+                href="mailto:{contact.email}"
+                class="text-white font-medium hover:text-primary transition-colors"
+                >{contact.email}</a
+              >
             </div>
           </div>
           <div class="flex items-center gap-4">

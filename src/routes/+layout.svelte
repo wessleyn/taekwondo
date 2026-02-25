@@ -28,7 +28,7 @@
     class="fixed inset-0 z-100 flex flex-col items-center justify-center bg-secondary transition-all duration-500 ease-in-out
            {isLoaded ? 'opacity-0 scale-150 pointer-events-none' : 'opacity-100 scale-100'}"
 >
-    <div class="relative w-128 h-128 animate-pulse flex items-center justify-center">
+    <div class="relative w-lg h-128 animate-pulse flex items-center justify-center">
         <img 
             src="/logo.png" 
             alt="Loading..." 

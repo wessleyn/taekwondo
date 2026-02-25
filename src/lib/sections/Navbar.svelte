@@ -32,7 +32,7 @@
     <div class="flex items-center justify-between h-20">
       <!-- Logo -->
       <a href="#hero" class="flex items-center gap-2 group">
-        <img src="/logo.png" alt="Bandong Ryok Logo" class="w-20 h-20" />
+        <img src="{scrolled ? '/dark-logo.png' : '/logo.png'}" alt="Bandong Ryok Logo" class="w-20 h-20" />
         <span
           class="text-xl font-bold font-heading tracking-tight
 					       {scrolled ? 'text-secondary' : 'text-white'}

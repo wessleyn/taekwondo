@@ -9,8 +9,9 @@
   import {
     Facebook,
     Instagram,
-    MessageCircle,
-    Twitter
+    Twitter,
+
+    Youtube
   } from "lucide-svelte";
 
   let showScrollTop = $state(false);
@@ -44,7 +45,7 @@
     { label: "Twitter/X", icon: Twitter, href: socialLinks.twitterX },
     // Replaced Pinterest with a generic chat bubble since WhatsApp is often more relevant for Dojangs, 
     // but you can swap this back if you specifically need Pinterest!
-    { label: "Community", icon: MessageCircle, href: socialLinks.pinterest }, 
+    { label: "YouTube", icon: Youtube, href: socialLinks.youtube }, 
   ];
 </script>
 

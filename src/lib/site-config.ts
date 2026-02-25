@@ -85,7 +85,7 @@ export const socials = {
     facebook: "#",
     instagram: "#",
     twitterX: "#",
-    pinterest: "#",
+    youtube: "#",
 } as const;
 
 // ── Stats / Metrics ─────────────────────────────

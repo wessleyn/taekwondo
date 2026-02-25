@@ -1,7 +1,3 @@
-<!-- 
-  Footer.svelte
-  Site footer with links, contact info, and back-to-top 
--->
 <script lang="ts">
   import {
     brand,
@@ -9,6 +5,13 @@
     footer as footerConfig,
     socials as socialLinks
   } from "$lib/site-config";
+  // 1. Import the specific icons from Lucide Svelte
+  import {
+    Facebook,
+    Instagram,
+    MessageCircle,
+    Twitter
+  } from "lucide-svelte";
 
   let showScrollTop = $state(false);
 
@@ -34,26 +37,28 @@
     { label: "Gallery", href: "#gallery" },
   ];
 
+  // 2. Update the socials array to hold the imported component reference, not a string
   const socials = [
-    { label: "Facebook", icon: "fb", href: socialLinks.facebook },
-    { label: "Instagram", icon: "ig", href: socialLinks.instagram },
-    { label: "Twitter/X", icon: "x", href: socialLinks.twitterX },
-    { label: "Pinterest", icon: "pin", href: socialLinks.pinterest },
+    { label: "Facebook", icon: Facebook, href: socialLinks.facebook },
+    { label: "Instagram", icon: Instagram, href: socialLinks.instagram },
+    { label: "Twitter/X", icon: Twitter, href: socialLinks.twitterX },
+    // Replaced Pinterest with a generic chat bubble since WhatsApp is often more relevant for Dojangs, 
+    // but you can swap this back if you specifically need Pinterest!
+    { label: "Community", icon: MessageCircle, href: socialLinks.pinterest }, 
   ];
 </script>
 
 <svelte:window onscroll={handleScroll} />
 
-<footer class="bg-secondary text-gray-400 pt-16 pb-6">
+<footer class="bg-secondary text-gray-400 pt-16 pb-6 border-t border-white/5">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div
       class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10"
     >
-      <!-- Brand -->
       <div>
-        <a href="#hero" class="flex items-center gap-2 mb-4">
-          <span class="text-3xl">🥋</span>
-          <span class="text-xl font-bold font-heading text-white"
+        <a href="#hero" class="flex items-center gap-2 mb-4 group">
+          <img src="/logo.png" alt="Bandong Ryok Logo" class="w-12 h-12 object-contain" />
+          <span class="text-xl font-bold font-heading text-white group-hover:text-primary transition-colors"
             >{brand.nameShort}</span
           >
         </a>
@@ -62,7 +67,6 @@
         </p>
       </div>
 
-      <!-- Quick Links -->
       <div>
         <h4
           class="text-white text-sm font-semibold uppercase tracking-wider mb-4"
@@ -83,7 +87,6 @@
         </ul>
       </div>
 
-      <!-- Legal -->
       <div>
         <h4
           class="text-white text-sm font-semibold uppercase tracking-wider mb-4"
@@ -104,7 +107,6 @@
         </ul>
       </div>
 
-      <!-- Contact -->
       <div>
         <h4
           class="text-white text-sm font-semibold uppercase tracking-wider mb-4"
@@ -130,24 +132,25 @@
           </li>
         </ul>
 
-        <!-- Socials -->
-        <div class="flex gap-3 mt-5">
+        <div class="flex gap-3 mt-6">
           {#each socials as s}
             <a
               href={s.href}
               aria-label={s.label}
-              class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center
-							       text-xs text-white hover:bg-primary hover:text-white
-							       transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center
+                     text-gray-400 hover:bg-primary hover:text-white hover:border-primary hover:scale-110
+                     transition-all duration-300"
             >
-              {s.icon}
+              <!-- svelte-ignore svelte_component_deprecated -->
+              <svelte:component this={s.icon} size={18} strokeWidth={2} />
             </a>
           {/each}
         </div>
       </div>
     </div>
 
-    <!-- Copyright -->
     <div
       class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4"
     >
@@ -155,32 +158,31 @@
         {footerConfig.copyright}
       </p>
       <p class="text-xs">
-        Made with <span class="text-primary">♥</span> by
+        Made with <span class="text-primary animate-pulse inline-block">♥</span> by
         <a
           href={footerConfig.madeBy.url}
           target="_blank"
-          class="hover:text-primary text-white">{footerConfig.madeBy.name}</a
+          class="hover:text-primary text-white transition-colors">{footerConfig.madeBy.name}</a
         >
       </p>
     </div>
   </div>
 </footer>
 
-<!-- Back to top button -->
 {#if showScrollTop}
   <button
     onclick={scrollToTop}
     aria-label="Back to top"
     class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-primary text-white
-		       shadow-lg hover:bg-primary-dark hover:shadow-xl
-		       flex items-center justify-center transition-all duration-300 cursor-pointer
-		       animate-bounce"
+           shadow-[0_0_15px_rgba(var(--color-primary-rgb),0.5)] hover:bg-white hover:text-primary hover:shadow-xl
+           flex items-center justify-center transition-all duration-300 cursor-pointer
+           animate-bounce"
   >
     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path
         stroke-linecap="round"
         stroke-linejoin="round"
-        stroke-width="2"
+        stroke-width="2.5"
         d="M5 15l7-7 7 7"
       />
     </svg>

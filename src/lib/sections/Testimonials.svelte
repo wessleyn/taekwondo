@@ -27,7 +27,7 @@
       name: "Hassan",
       role: "Blue Belt",
       stars: 5,
-      image: "/two.jpeg",
+      image: "/blue.jpeg",
     },
   ];
 

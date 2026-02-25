@@ -4,6 +4,7 @@
 -->
 <script lang="ts">
   import SectionHeading from "$lib/components/SectionHeading.svelte";
+  import { schedule as scheduleConfig } from "$lib/site-config";
 
   type ClassEntry = {
     name: string;
@@ -11,70 +12,24 @@
     color: string;
   };
 
-  const days = ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday"];
+  const days = scheduleConfig.trainingDays;
 
-  const schedule: Record<string, ClassEntry[]> = {
-    Saturday: [
-      {
-        name: "ITF Taekwondo — Session 1",
-        time: "5:00 PM – 7:00 PM",
-        color: "bg-primary/10 text-primary",
-      },
-      {
-        name: "ITF Taekwondo — Session 2",
-        time: "7:00 PM – 9:00 PM",
-        color: "bg-secondary/10 text-secondary",
-      },
-    ],
-    Sunday: [
-      {
-        name: "ITF Taekwondo — Session 1",
-        time: "5:00 PM – 7:00 PM",
-        color: "bg-primary/10 text-primary",
-      },
-      {
-        name: "ITF Taekwondo — Session 2",
-        time: "7:00 PM – 9:00 PM",
-        color: "bg-secondary/10 text-secondary",
-      },
-    ],
-    Monday: [
-      {
-        name: "ITF Taekwondo — Session 1",
-        time: "5:00 PM – 7:00 PM",
-        color: "bg-primary/10 text-primary",
-      },
-      {
-        name: "ITF Taekwondo — Session 2",
-        time: "7:00 PM – 9:00 PM",
-        color: "bg-secondary/10 text-secondary",
-      },
-    ],
-    Tuesday: [
-      {
-        name: "ITF Taekwondo — Session 1",
-        time: "5:00 PM – 7:00 PM",
-        color: "bg-primary/10 text-primary",
-      },
-      {
-        name: "ITF Taekwondo — Session 2",
-        time: "7:00 PM – 9:00 PM",
-        color: "bg-secondary/10 text-secondary",
-      },
-    ],
-    Wednesday: [
-      {
-        name: "ITF Taekwondo — Session 1",
-        time: "5:00 PM – 7:00 PM",
-        color: "bg-primary/10 text-primary",
-      },
-      {
-        name: "ITF Taekwondo — Session 2",
-        time: "7:00 PM – 9:00 PM",
-        color: "bg-secondary/10 text-secondary",
-      },
-    ],
-  };
+  const sessionEntries: ClassEntry[] = [
+    {
+      name: scheduleConfig.sessions[0].name,
+      time: scheduleConfig.sessions[0].time,
+      color: "bg-primary/10 text-primary",
+    },
+    {
+      name: scheduleConfig.sessions[1].name,
+      time: scheduleConfig.sessions[1].time,
+      color: "bg-secondary/10 text-secondary",
+    },
+  ];
+
+  const schedule: Record<string, ClassEntry[]> = Object.fromEntries(
+    days.map((day) => [day, sessionEntries]),
+  );
 
   // Private lessons also available — pricing by negotiation
 </script>

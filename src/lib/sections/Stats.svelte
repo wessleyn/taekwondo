@@ -4,13 +4,26 @@
 -->
 <script lang="ts">
   import CounterStat from "$lib/components/CounterStat.svelte";
+  import { instructor, schedule, stats as siteStats } from "$lib/site-config";
 
   const stats = [
-    { target: 10, suffix: "+", label: "Years Teaching" },
-    { target: 3, suffix: "rd Dan", label: "Instructor Rank" },
-    { target: 5, suffix: "", label: "Training Days / Week" },
-    { target: 100, suffix: "+", label: "Students Trained" },
-    { target: 2, suffix: "", label: "Sessions Daily" },
+    { target: siteStats.yearsTeaching, suffix: "+", label: "Years Teaching" },
+    {
+      target: instructor.rankNumber,
+      suffix: "rd Dan",
+      label: "Instructor Rank",
+    },
+    {
+      target: schedule.trainingDaysPerWeek,
+      suffix: "",
+      label: "Training Days / Week",
+    },
+    {
+      target: siteStats.studentsTrained,
+      suffix: "+",
+      label: "Students Trained",
+    },
+    { target: schedule.sessionsPerDay, suffix: "", label: "Sessions Daily" },
   ];
 </script>
 

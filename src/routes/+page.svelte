@@ -13,14 +13,12 @@
   import Stats from "$lib/sections/Stats.svelte";
   import TailoredClasses from "$lib/sections/TailoredClasses.svelte";
   import Testimonials from "$lib/sections/Testimonials.svelte";
+  import { brand } from "$lib/site-config";
 </script>
 
 <svelte:head>
-  <title>Bandong Ryok I.T.F Taekwon-Do Club</title>
-  <meta
-    name="description"
-    content="Bandong Ryok I.T.F Taekwon-Do Club — Discipline, respect, and self-improvement through ITF Taekwondo."
-  />
+  <title>{brand.nameFull}</title>
+  <meta name="description" content="{brand.nameFull} — {brand.tagline}" />
 </svelte:head>
 
 <Hero />

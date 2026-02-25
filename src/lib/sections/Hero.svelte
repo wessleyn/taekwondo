@@ -1,5 +1,6 @@
 <script lang="ts">
   import Button from "$lib/components/Button.svelte";
+  import { brand } from "$lib/site-config";
 
   const slides = [
     {
@@ -15,7 +16,7 @@
       image: "/champion.png",
     },
     {
-      subtitle: "Bandong Ryok I.T.F Taekwon-Do",
+      subtitle: brand.nameFull.replace("Club", "").trim(),
       title: "Discipline.\nRespect. Power.",
       cta: "Read More",
       image: "/discipline.png",
@@ -45,23 +46,93 @@
     style="background: radial-gradient(circle at 70% 50%, var(--color-primary) 0%, transparent 60%);"
   ></div>
 
-  <div class="absolute top-0 left-0 w-64 h-64 lg:w-96 lg:h-96 pointer-events-none z-0 opacity-15 mix-blend-color-dodge text-primary">
-    <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full transform -translate-x-1/4 -translate-y-1/4">
-      <path d="M100 0 C100 55.23 55.23 100 0 100 C55.23 100 100 144.77 100 200 C100 144.77 144.77 100 200 100 C144.77 100 100 55.23 100 0 Z" fill="currentColor" opacity="0.3" />
-      <path d="M100 20 C100 64.18 64.18 100 20 100 C64.18 100 100 135.82 100 180 C100 135.82 135.82 100 180 100 C135.82 100 100 64.18 100 20 Z" fill="transparent" stroke="currentColor" stroke-width="1.5"/>
-      <circle cx="100" cy="100" r="45" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 6" />
-      <circle cx="100" cy="100" r="65" stroke="currentColor" stroke-width="1" opacity="0.4" />
-      <path d="M50 50 L150 150 M50 150 L150 50" stroke="currentColor" stroke-width="1" opacity="0.3" />
+  <div
+    class="absolute top-0 left-0 w-64 h-64 lg:w-96 lg:h-96 pointer-events-none z-0 opacity-15 mix-blend-color-dodge text-primary"
+  >
+    <svg
+      viewBox="0 0 200 200"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      class="w-full h-full transform -translate-x-1/4 -translate-y-1/4"
+    >
+      <path
+        d="M100 0 C100 55.23 55.23 100 0 100 C55.23 100 100 144.77 100 200 C100 144.77 144.77 100 200 100 C144.77 100 100 55.23 100 0 Z"
+        fill="currentColor"
+        opacity="0.3"
+      />
+      <path
+        d="M100 20 C100 64.18 64.18 100 20 100 C64.18 100 100 135.82 100 180 C100 135.82 135.82 100 180 100 C135.82 100 100 64.18 100 20 Z"
+        fill="transparent"
+        stroke="currentColor"
+        stroke-width="1.5"
+      />
+      <circle
+        cx="100"
+        cy="100"
+        r="45"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-dasharray="4 6"
+      />
+      <circle
+        cx="100"
+        cy="100"
+        r="65"
+        stroke="currentColor"
+        stroke-width="1"
+        opacity="0.4"
+      />
+      <path
+        d="M50 50 L150 150 M50 150 L150 50"
+        stroke="currentColor"
+        stroke-width="1"
+        opacity="0.3"
+      />
     </svg>
   </div>
 
-  <div class="absolute bottom-10 right-0 w-56 h-56 lg:w-80 lg:h-80 pointer-events-none z-10 opacity-15 mix-blend-color-dodge text-primary">
-    <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full transform translate-x-1/4 translate-y-1/4 rotate-90">
-      <path d="M100 0 C100 55.23 55.23 100 0 100 C55.23 100 100 144.77 100 200 C100 144.77 144.77 100 200 100 C144.77 100 100 55.23 100 0 Z" fill="currentColor" opacity="0.3" />
-      <path d="M100 20 C100 64.18 64.18 100 20 100 C64.18 100 100 135.82 100 180 C100 135.82 135.82 100 180 100 C135.82 100 100 64.18 100 20 Z" fill="transparent" stroke="currentColor" stroke-width="1.5"/>
-      <circle cx="100" cy="100" r="45" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 6" />
-      <circle cx="100" cy="100" r="65" stroke="currentColor" stroke-width="1" opacity="0.4" />
-      <path d="M50 50 L150 150 M50 150 L150 50" stroke="currentColor" stroke-width="1" opacity="0.3" />
+  <div
+    class="absolute bottom-10 right-0 w-56 h-56 lg:w-80 lg:h-80 pointer-events-none z-10 opacity-15 mix-blend-color-dodge text-primary"
+  >
+    <svg
+      viewBox="0 0 200 200"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      class="w-full h-full transform translate-x-1/4 translate-y-1/4 rotate-90"
+    >
+      <path
+        d="M100 0 C100 55.23 55.23 100 0 100 C55.23 100 100 144.77 100 200 C100 144.77 144.77 100 200 100 C144.77 100 100 55.23 100 0 Z"
+        fill="currentColor"
+        opacity="0.3"
+      />
+      <path
+        d="M100 20 C100 64.18 64.18 100 20 100 C64.18 100 100 135.82 100 180 C100 135.82 135.82 100 180 100 C135.82 100 100 64.18 100 20 Z"
+        fill="transparent"
+        stroke="currentColor"
+        stroke-width="1.5"
+      />
+      <circle
+        cx="100"
+        cy="100"
+        r="45"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-dasharray="4 6"
+      />
+      <circle
+        cx="100"
+        cy="100"
+        r="65"
+        stroke="currentColor"
+        stroke-width="1"
+        opacity="0.4"
+      />
+      <path
+        d="M50 50 L150 150 M50 150 L150 50"
+        stroke="currentColor"
+        stroke-width="1"
+        opacity="0.3"
+      />
     </svg>
   </div>
 

@@ -4,6 +4,7 @@
 -->
 <script lang="ts">
   import SectionHeading from "$lib/components/SectionHeading.svelte";
+  import { brand, contact, instructor, schedule } from "$lib/site-config";
 
   let name = $state("");
   let phone = $state("");
@@ -38,8 +39,8 @@
         />
 
         <p class="mt-6 text-gray-300 leading-relaxed max-w-md">
-          Ready to start your Taekwondo journey with Bandong Ryok I.T.F? Book a
-          session or send us a message. Sabumnim Yasini Saidi will get back to
+          Ready to start your Taekwondo journey with {brand.nameShort}? Book a
+          session or send us a message. {instructor.displayName} will get back to
           you.
         </p>
 
@@ -53,7 +54,7 @@
               <p class="text-xs text-gray-400 uppercase tracking-wider">
                 Phone
               </p>
-              <p class="text-white font-medium">Contact us for details</p>
+              <p class="text-white font-medium">{contact.phoneDisplay}</p>
             </div>
           </div>
           <div class="flex items-center gap-4">
@@ -65,7 +66,7 @@
               <p class="text-xs text-gray-400 uppercase tracking-wider">
                 Email
               </p>
-              <p class="text-white font-medium">bandongryok.itf@gmail.com</p>
+              <p class="text-white font-medium">{contact.email}</p>
             </div>
           </div>
           <div class="flex items-center gap-4">
@@ -77,7 +78,7 @@
               <p class="text-xs text-gray-400 uppercase tracking-wider">
                 Training Hours
               </p>
-              <p class="text-white font-medium">Sat–Wed: 5 PM – 9 PM</p>
+              <p class="text-white font-medium">{schedule.hoursDisplay}</p>
             </div>
           </div>
         </div>
@@ -169,8 +170,12 @@
               >
                 <option value="taekwondo">ITF Taekwondo</option>
                 <option value="private">Private Lesson</option>
-                <option value="session1">Session 1 (5–7 PM)</option>
-                <option value="session2">Session 2 (7–9 PM)</option>
+                <option value="session1"
+                  >Session 1 ({schedule.sessions[0].shortTime})</option
+                >
+                <option value="session2"
+                  >Session 2 ({schedule.sessions[1].shortTime})</option
+                >
               </select>
             </div>
 

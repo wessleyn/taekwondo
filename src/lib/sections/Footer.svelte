@@ -3,6 +3,15 @@
   Site footer with links, contact info, and back-to-top 
 -->
 <script lang="ts">
+  import {
+    brand,
+    contact,
+    footer as footerConfig,
+    instructor,
+    schedule,
+    socials as socialLinks,
+  } from "$lib/site-config";
+
   let showScrollTop = $state(false);
 
   function handleScroll() {
@@ -28,10 +37,10 @@
   ];
 
   const socials = [
-    { label: "Facebook", icon: "fb", href: "#" },
-    { label: "Instagram", icon: "ig", href: "#" },
-    { label: "Twitter/X", icon: "x", href: "#" },
-    { label: "Pinterest", icon: "pin", href: "#" },
+    { label: "Facebook", icon: "fb", href: socialLinks.facebook },
+    { label: "Instagram", icon: "ig", href: socialLinks.instagram },
+    { label: "Twitter/X", icon: "x", href: socialLinks.twitterX },
+    { label: "Pinterest", icon: "pin", href: socialLinks.pinterest },
   ];
 </script>
 
@@ -47,12 +56,11 @@
         <a href="#hero" class="flex items-center gap-2 mb-4">
           <span class="text-3xl">🥋</span>
           <span class="text-xl font-bold font-heading text-white"
-            >Bandong Ryok I.T.F</span
+            >{brand.nameShort}</span
           >
         </a>
         <p class="text-sm leading-relaxed">
-          Building tomorrow's champions through ITF Taekwondo. Discipline,
-          respect, and self-improvement for every student.
+          {brand.description}
         </p>
       </div>
 
@@ -108,15 +116,15 @@
         <ul class="space-y-3 text-sm">
           <li class="flex items-start gap-2">
             <span class="text-primary mt-0.5">✉️</span>
-            <span>bandongryok.itf@gmail.com</span>
+            <span>{contact.email}</span>
           </li>
           <li class="flex items-start gap-2">
             <span class="text-primary mt-0.5">🕐</span>
-            <span>Sat–Wed: 5 PM – 9 PM</span>
+            <span>{schedule.hoursDisplay}</span>
           </li>
           <li class="flex items-start gap-2">
             <span class="text-primary mt-0.5">🥋</span>
-            <span>Instructor: Yasini Saidi (3rd Dan)</span>
+            <span>Instructor: {instructor.fullName} ({instructor.rank})</span>
           </li>
         </ul>
 
@@ -142,11 +150,15 @@
       class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4"
     >
       <p class="text-xs">
-        © 2026 Bandong Ryok I.T.F Taekwon-Do Club. All Rights Reserved.
+        {footerConfig.copyright}
       </p>
       <p class="text-xs">
-        Made with <span class="text-primary">♥</span>  by <a href="https://wessleyn.me" target="_blank" class="hover:text-primary text-white">Wessley N.</a>
-        
+        Made with <span class="text-primary">♥</span> by
+        <a
+          href={footerConfig.madeBy.url}
+          target="_blank"
+          class="hover:text-primary text-white">{footerConfig.madeBy.name}</a
+        >
       </p>
     </div>
   </div>

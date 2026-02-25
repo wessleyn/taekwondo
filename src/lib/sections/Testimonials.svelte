@@ -4,25 +4,26 @@
 -->
 <script lang="ts">
   import SectionHeading from "$lib/components/SectionHeading.svelte";
+  import { brand, instructor } from "$lib/site-config";
 
   const testimonials = [
     {
       quote: "Teachers are excellent and genuinely kind",
-      body: "The training environment is welcoming and professional. Instructor Yasini pushes you to improve while always making sure technique comes first. My children love every session.",
+      body: `The training environment is welcoming and professional. ${instructor.shortName} pushes you to improve while always making sure technique comes first. My children love every session.`,
       name: "Joe",
       role: "Parent & Student",
       stars: 5,
     },
     {
       quote: "Discipline and respect in every lesson",
-      body: "Since joining Bandong Ryok, my confidence has grown tremendously. The structured belt progression keeps me motivated, and the community feels like family.",
+      body: `Since joining ${brand.name}, my confidence has grown tremendously. The structured belt progression keeps me motivated, and the community feels like family.`,
       name: "Amina",
       role: "Advanced Student",
       stars: 5,
     },
     {
       quote: "Best Taekwondo club in the region",
-      body: "Instructor Yasini has a gift for teaching. He breaks down complex patterns so everyone can understand. The atmosphere is focused yet encouraging.",
+      body: `${instructor.shortName} has a gift for teaching. He breaks down complex patterns so everyone can understand. The atmosphere is focused yet encouraging.`,
       name: "Hassan",
       role: "Blue Belt",
       stars: 5,

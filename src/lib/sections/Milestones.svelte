@@ -6,6 +6,7 @@
   import Button from "$lib/components/Button.svelte";
   import IconBox from "$lib/components/IconBox.svelte";
   import SectionHeading from "$lib/components/SectionHeading.svelte";
+  import { instructor } from "$lib/site-config";
 
   const milestones = [
     {
@@ -23,8 +24,7 @@
     {
       icon: "🦶",
       title: "Sparring & Self-Defense",
-      description:
-        "Train in controlled sparring and practical self-defense techniques under the guidance of a 3rd Dan instructor.",
+      description: `Train in controlled sparring and practical self-defense techniques under the guidance of a ${instructor.rank} instructor.`,
     },
     {
       icon: "💪",

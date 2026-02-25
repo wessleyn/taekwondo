@@ -4,6 +4,7 @@
 -->
 <script lang="ts">
   import SectionHeading from "$lib/components/SectionHeading.svelte";
+  import { brand, instructor } from "$lib/site-config";
 
   let expanded = $state(false);
 </script>
@@ -29,7 +30,7 @@
       <div class="px-6 py-8 space-y-5 text-sm text-body-text leading-relaxed">
         <p>
           By participating in <strong class="text-secondary"
-            >BANDONG RYOK I.T.F TAEKWON-DO CLUB</strong
+            >{brand.nameFull.toUpperCase()}</strong
           >
           activities, I'm aware that martial arts training carries some risk of injury
           that may occur during training, competitions, or related events. I'm responsible
@@ -38,7 +39,7 @@
 
         <p>
           I release <strong class="text-secondary"
-            >BANDONG RYOK I.T.F TAEKWON-DO CLUB</strong
+            >{brand.nameFull.toUpperCase()}</strong
           >, its sponsors, employees, agents, officers, and directors from any
           liability for injuries or losses I or my child/children may sustain
           while participating in club activities.
@@ -51,9 +52,10 @@
           </p>
 
           <p>
-            I authorize <strong class="text-secondary">YASINI SAIDI</strong> (Instructor
-            and Head Coach) to administer first aid and/or seek medical treatment
-            if needed.
+            I authorize <strong class="text-secondary"
+              >{instructor.fullName.toUpperCase()}</strong
+            > (Instructor and Head Coach) to administer first aid and/or seek medical
+            treatment if needed.
           </p>
 
           <p>

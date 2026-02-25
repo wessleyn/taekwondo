@@ -3,13 +3,14 @@
 -->
 <script lang="ts">
   import Button from "$lib/components/Button.svelte";
+  import { brand, instructor, pricing } from "$lib/site-config";
 </script>
 
 <svelte:head>
-  <title>Policies — Bandong Ryok I.T.F Taekwon-Do Club</title>
+  <title>Policies — {brand.nameFull}</title>
   <meta
     name="description"
-    content="Participation liability release, medical authorization, and club policies for Bandong Ryok I.T.F Taekwon-Do Club."
+    content="Participation liability release, medical authorization, and club policies for {brand.nameFull}."
   />
 </svelte:head>
 
@@ -39,7 +40,7 @@
           Participation Liability Release & Medical Authorization
         </h2>
         <p class="text-gray-400 text-xs mt-1">
-          Bandong Ryok I.T.F Taekwon-Do Club
+          {brand.nameFull}
         </p>
       </div>
 
@@ -47,7 +48,7 @@
       <div class="px-8 py-10 space-y-6 text-sm text-body-text leading-relaxed">
         <p>
           By participating in <strong class="text-secondary"
-            >BANDONG RYOK I.T.F TAEKWON-DO CLUB</strong
+            >{brand.nameFull.toUpperCase()}</strong
           >
           activities, I'm aware that martial arts training carries some risk of injury
           that may occur during training, competitions, or related events. I'm responsible
@@ -56,7 +57,7 @@
 
         <p>
           I release <strong class="text-secondary"
-            >BANDONG RYOK I.T.F TAEKWON-DO CLUB</strong
+            >{brand.nameFull.toUpperCase()}</strong
           >, its sponsors, employees, agents, officers, and directors from any
           liability for injuries or losses I or my child/children may sustain
           while participating in club activities.
@@ -70,9 +71,10 @@
         </p>
 
         <p>
-          I authorize <strong class="text-secondary">YASINI SAIDI</strong> (Instructor
-          and Head Coach) to administer first aid and/or seek medical treatment if
-          needed.
+          I authorize <strong class="text-secondary"
+            >{instructor.fullName.toUpperCase()}</strong
+          > (Instructor and Head Coach) to administer first aid and/or seek medical
+          treatment if needed.
         </p>
 
         <p>
@@ -108,7 +110,9 @@
             <div
               class="text-center p-3 bg-white rounded-lg border border-tertiary"
             >
-              <p class="text-2xl font-bold font-heading text-primary">$10</p>
+              <p class="text-2xl font-bold font-heading text-primary">
+                {pricing.joiningFee}
+              </p>
               <p class="text-xs text-body-text uppercase tracking-wider mt-1">
                 Joining Fee
               </p>
@@ -116,7 +120,9 @@
             <div
               class="text-center p-3 bg-white rounded-lg border border-tertiary"
             >
-              <p class="text-2xl font-bold font-heading text-primary">$10</p>
+              <p class="text-2xl font-bold font-heading text-primary">
+                {pricing.monthlyFee}
+              </p>
               <p class="text-xs text-body-text uppercase tracking-wider mt-1">
                 Monthly Fee
               </p>

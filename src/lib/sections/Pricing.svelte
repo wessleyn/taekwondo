@@ -5,12 +5,13 @@
 <script lang="ts">
   import PricingCard from "$lib/components/PricingCard.svelte";
   import SectionHeading from "$lib/components/SectionHeading.svelte";
+  import { instructor, pricing, schedule } from "$lib/site-config";
 
   const tiers = [
     {
       plan: "Joining Fee",
       duration: "One-Time",
-      price: "$10",
+      price: pricing.joiningFee,
       unit: "once",
       features: [
         "Registration & club membership",
@@ -22,19 +23,19 @@
     {
       plan: "Monthly Fee",
       duration: "30 Days",
-      price: "$10",
+      price: pricing.monthlyFee,
       unit: "month",
       features: [
-        "5 training days per week (Sat–Wed)",
-        "Two sessions daily: 5–7 PM & 7–9 PM",
-        "Instruction by 3rd Dan Sabumnim",
+        `${schedule.trainingDaysPerWeek} training days per week (${schedule.hoursDisplay.split(":")[0].trim()})`,
+        `Two sessions daily: ${schedule.sessions[0].shortTime} & ${schedule.sessions[1].shortTime}`,
+        `Instruction by ${instructor.rank} ${instructor.title}`,
       ],
       highlighted: true,
     },
     {
       plan: "Private Lessons",
       duration: "By Appointment",
-      price: "TBD",
+      price: pricing.privateLessons,
       unit: "session",
       features: [
         "1-on-1 personal training",

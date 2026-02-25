@@ -4,6 +4,7 @@
 -->
 <script lang="ts">
   import SectionHeading from "$lib/components/SectionHeading.svelte";
+  import { instructor } from "$lib/site-config";
 
   const classes = [
     {
@@ -14,7 +15,7 @@
       image:
         "https://images.unsplash.com/photo-1611605698335-8b1569810432?w=500&h=500&fit=crop",
       date: "Ages 5–12",
-      author: "Instructor Yasini",
+      author: instructor.shortName,
     },
     {
       tag: "Main Event",
@@ -24,7 +25,7 @@
       image:
         "https://images.unsplash.com/photo-1564415315949-7a0c4c73aab4?w=500&h=500&fit=crop",
       date: "Quarterly",
-      author: "Instructor Yasini",
+      author: instructor.shortName,
     },
   ];
 
@@ -33,10 +34,9 @@
     title: "Mindful Taekwondo",
     description:
       "Combining mental discipline with physical technique. Focus on patterns (Tul), self-defense, and sparring at advanced levels.",
-    image:
-      "/girl.jpeg",
+    image: "/girl.jpeg",
     date: "Ongoing",
-    author: "Sensei Yasini Saidi",
+    author: `${instructor.title} ${instructor.fullName}`,
     covers: [
       "ITF Patterns from Chon-Ji to advanced",
       "Controlled sparring & self-defense drills",

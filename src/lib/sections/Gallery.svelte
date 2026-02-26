@@ -42,7 +42,7 @@
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 mt-14">
       {#each images as img}
         <a
-          href={socials.instagram !== "#"
+          href={(socials.instagram as string) !== "#"
             ? socials.instagram
             : "https://instagram.com"}
           target="_blank"

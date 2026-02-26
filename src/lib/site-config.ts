@@ -85,10 +85,10 @@ export const pricing = {
 // ── Social Media ────────────────────────────────
 
 export const socials = {
-    facebook: "#",
-    instagram: "#",
-    twitterX: "#",
-    youtube: "#",
+    facebook: "https://www.facebook.com/profile.php?id=61579326119190",
+    instagram: "https://www.instagram.com/bandong.ryok.zw?igsh=MWRuOGZtenJ2MWZ5Zw==",
+    tiktok: "https://www.tiktok.com/@bandongryok.zw",
+    youtube: "@YassineAnch",
 } as const;
 
 // ── Stats / Metrics ─────────────────────────────

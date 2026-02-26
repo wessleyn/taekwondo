@@ -3,16 +3,11 @@
     brand,
     contact,
     footer as footerConfig,
-    socials as socialLinks
+    socials as socialLinks,
   } from "$lib/site-config";
   // 1. Import the specific icons from Lucide Svelte
-  import {
-    Facebook,
-    Instagram,
-    Twitter,
-
-    Youtube
-  } from "lucide-svelte";
+  import TiktokIcon from "$lib/components/TiktokIcon.svelte";
+  import { Facebook, Instagram, Youtube } from "lucide-svelte";
 
   let showScrollTop = $state(false);
 
@@ -42,10 +37,8 @@
   const socials = [
     { label: "Facebook", icon: Facebook, href: socialLinks.facebook },
     { label: "Instagram", icon: Instagram, href: socialLinks.instagram },
-    { label: "Twitter/X", icon: Twitter, href: socialLinks.twitterX },
-    // Replaced Pinterest with a generic chat bubble since WhatsApp is often more relevant for Dojangs, 
-    // but you can swap this back if you specifically need Pinterest!
-    { label: "YouTube", icon: Youtube, href: socialLinks.youtube }, 
+    { label: "Tiktok", icon: TiktokIcon, href: socialLinks.tiktok },
+    { label: "YouTube", icon: Youtube, href: socialLinks.youtube },
   ];
 </script>
 
@@ -58,8 +51,13 @@
     >
       <div>
         <a href="/#hero" class="flex items-center gap-2 mb-4 group">
-          <img src="/logo.png" alt="Bandong Ryok Logo" class="w-12 h-12 object-contain" />
-          <span class="text-xl font-bold font-heading text-white group-hover:text-primary transition-colors"
+          <img
+            src="/logo.png"
+            alt="Bandong Ryok Logo"
+            class="w-12 h-12 object-contain"
+          />
+          <span
+            class="text-xl font-bold font-heading text-white group-hover:text-primary transition-colors"
             >{brand.nameShort}</span
           >
         </a>
@@ -119,7 +117,8 @@
             <span class="text-primary mt-0.5">✉️</span>
             <a
               href="mailto:{contact.email}"
-              class="hover:text-primary text-gray-400 transition-colors">{contact.email}</a
+              class="hover:text-primary text-gray-400 transition-colors"
+              >{contact.email}</a
             >
           </li>
           <li class="flex items-start gap-2">
@@ -128,7 +127,8 @@
               href="https://wa.me/{contact.whatsapp.replace(/\s+/g, '')}"
               target="_blank"
               rel="noopener noreferrer"
-              class="hover:text-primary text-gray-400 transition-colors">WhatsApp: {contact.whatsapp}</a
+              class="hover:text-primary text-gray-400 transition-colors"
+              >WhatsApp: {contact.whatsapp}</a
             >
           </li>
         </ul>
@@ -159,11 +159,14 @@
         {footerConfig.copyright}
       </p>
       <p class="text-xs">
-        Made with <span class="text-primary animate-pulse inline-block">♥</span> by
+        Made with <span class="text-primary animate-pulse inline-block">♥</span
+        >
+        by
         <a
           href={footerConfig.madeBy.url}
           target="_blank"
-          class="hover:text-primary text-white transition-colors">{footerConfig.madeBy.name}</a
+          class="hover:text-primary text-white transition-colors"
+          >{footerConfig.madeBy.name}</a
         >
       </p>
     </div>

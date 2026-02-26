@@ -88,7 +88,7 @@ export const socials = {
     facebook: "https://www.facebook.com/profile.php?id=61579326119190",
     instagram: "https://www.instagram.com/bandong.ryok.zw?igsh=MWRuOGZtenJ2MWZ5Zw==",
     tiktok: "https://www.tiktok.com/@bandongryok.zw",
-    youtube: "@YassineAnch",
+    youtube: "https://www.youtube.com/@YassineAnch",
 } as const;
 
 // ── Stats / Metrics ─────────────────────────────

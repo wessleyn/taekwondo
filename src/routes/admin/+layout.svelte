@@ -5,7 +5,10 @@
   import type { Snippet } from "svelte";
   import "../../app.css";
 
-  let { children }: { children: Snippet } = $props();
+  let {
+    children,
+    data,
+  }: { children: Snippet; data: { userEmail: string | null } } = $props();
 
   const navItems = [
     { href: "/admin", label: "Roster" },
@@ -13,30 +16,19 @@
   ];
 
   let mobileOpen = $state(false);
-  let userEmail = $state<string | null>(null);
+  // Seed from server — no flash, no client round-trip needed
+  let userEmail = $state(data.userEmail);
 
-  // Client-side auth guard
+  // Only needed to catch client-side sign-out
   $effect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      if (session) {
-        userEmail = session.user.email ?? null;
-        if (page.url.pathname === "/admin/login") goto("/admin");
-      } else if (page.url.pathname !== "/admin/login") {
-        goto("/admin/login");
-      }
-    });
-
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
-      if (session) {
-        userEmail = session.user.email ?? null;
-        if (page.url.pathname === "/admin/login") goto("/admin");
-      } else if (page.url.pathname !== "/admin/login") {
+      userEmail = session?.user?.email ?? null;
+      if (!session && page.url.pathname !== "/admin/login") {
         goto("/admin/login");
       }
     });
-
     return () => subscription.unsubscribe();
   });
 

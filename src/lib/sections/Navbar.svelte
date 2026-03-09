@@ -6,7 +6,7 @@
   let mobileOpen = $state(false);
   let sidebarOpen = $state(false);
   let scrolled = $state(false);
-  let dark = $derived(scrolled || $page.url.pathname.startsWith("/students"));
+  let dark = $derived(scrolled || $page.url.pathname !== "/");
 
   const navLinks = [
     { label: "Instructor", href: "/#sensei" },

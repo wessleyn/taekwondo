@@ -1,7 +1,10 @@
 <script lang="ts">
+  import { goto } from "$app/navigation";
   import { page } from "$app/state";
+  import { supabase } from "$lib/supabaseClient";
   import type { Snippet } from "svelte";
   import "../../app.css";
+
   let { children }: { children: Snippet } = $props();
 
   const navItems = [
@@ -10,6 +13,37 @@
   ];
 
   let mobileOpen = $state(false);
+  let userEmail = $state<string | null>(null);
+
+  // Client-side auth guard
+  $effect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (session) {
+        userEmail = session.user.email ?? null;
+        if (page.url.pathname === "/admin/login") goto("/admin");
+      } else if (page.url.pathname !== "/admin/login") {
+        goto("/admin/login");
+      }
+    });
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      if (session) {
+        userEmail = session.user.email ?? null;
+        if (page.url.pathname === "/admin/login") goto("/admin");
+      } else if (page.url.pathname !== "/admin/login") {
+        goto("/admin/login");
+      }
+    });
+
+    return () => subscription.unsubscribe();
+  });
+
+  async function signOut() {
+    await supabase.auth.signOut();
+    goto("/admin/login");
+  }
 </script>
 
 <!-- Mobile top header -->
@@ -72,6 +106,15 @@
       >
         ← Back to Live Site
       </a>
+      {#if userEmail}
+        <button
+          type="button"
+          onclick={signOut}
+          class="block w-full text-left px-4 py-3 text-sm text-red-400 hover:text-red-300 transition-colors"
+        >
+          Sign Out
+        </button>
+      {/if}
     </nav>
   {/if}
 </header>
@@ -93,7 +136,7 @@
       </div>
     </div>
 
-    <nav class="space-y-2 flex-1">
+    <nav class="space-y-2 flex-1 flex flex-col">
       {#each navItems as item}
         <a
           href={item.href}
@@ -105,9 +148,21 @@
           {item.label}
         </a>
       {/each}
+      {#if userEmail}
+        <button
+          type="button"
+          onclick={signOut}
+          class="block w-full text-left text-sm text-red-400 hover:text-red-300 transition-colors self-end mt-auto p-8"
+        >
+          Sign Out
+        </button>
+      {/if}
     </nav>
 
-    <div class="mt-auto pt-6 border-t border-white/10">
+    <div class="mt-auto pt-6 border-t border-white/10 space-y-2">
+      {#if userEmail}
+        <p class="text-xs text-gray-500 truncate px-1">{userEmail}</p>
+      {/if}
       <a
         href="/"
         class="block text-sm text-gray-400 hover:text-white transition-colors"

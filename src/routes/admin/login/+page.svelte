@@ -1,6 +1,57 @@
 <script lang="ts">
-  import { ShieldAlert } from "lucide-svelte";
-  let { form } = $props();
+  import { goto } from "$app/navigation";
+  import { supabase } from "$lib/supabaseClient";
+  import { KeyRound, Mail, ShieldAlert } from "lucide-svelte";
+
+  let email = $state("");
+  let otp = $state("");
+  let step = $state<"email" | "otp">("email");
+  let loading = $state(false);
+  let errorMessage = $state("");
+
+  async function requestOTP(e: Event) {
+    e.preventDefault();
+    loading = true;
+    errorMessage = "";
+
+    if (!email.toLowerCase().endsWith("@bandongryok.com")) {
+      errorMessage =
+        "Unauthorized. You must use an official @bandongryok.com email address.";
+      loading = false;
+      return;
+    }
+
+    const { error } = await supabase.auth.signInWithOtp({
+      email,
+      options: { shouldCreateUser: true },
+    });
+
+    if (error) {
+      errorMessage = error.message;
+    } else {
+      step = "otp";
+    }
+    loading = false;
+  }
+
+  async function verifyOTP(e: Event) {
+    e.preventDefault();
+    loading = true;
+    errorMessage = "";
+
+    const { error } = await supabase.auth.verifyOtp({
+      email,
+      token: otp,
+      type: "email",
+    });
+
+    if (error) {
+      errorMessage = "Invalid or expired code. Please try again.";
+      loading = false;
+    } else {
+      goto("/admin");
+    }
+  }
 </script>
 
 <div
@@ -24,40 +75,95 @@
       >
         Admin Portal
       </h1>
-      <p class="text-gray-400 mt-2 text-sm">Authorized personnel only.</p>
+      <p class="text-gray-400 mt-2 text-sm">
+        {step === "email"
+          ? "Authorized personnel only."
+          : `Code sent to ${email}`}
+      </p>
     </div>
 
-    <form method="POST" class="space-y-6">
-      <div>
-        <label
-          for="password"
-          class="block text-sm font-medium text-gray-300 mb-2"
-          >Master Password</label
-        >
-        <input
-          type="password"
-          name="password"
-          id="password"
-          required
-          class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
-          placeholder="••••••••"
-        />
-      </div>
-
-      {#if form?.incorrect}
-        <p
-          class="text-red-400 text-sm font-bold text-center bg-red-400/10 py-2 rounded"
-        >
-          Incorrect password. Try again.
-        </p>
-      {/if}
-
-      <button
-        type="submit"
-        class="w-full bg-primary text-white font-bold py-3 rounded-lg hover:bg-primary-dark transition-colors uppercase tracking-wider"
+    {#if errorMessage}
+      <div
+        class="mb-6 p-4 bg-red-500/10 border border-red-500/50 rounded-lg text-red-400 text-sm text-center font-medium"
       >
-        Authenticate
-      </button>
-    </form>
+        {errorMessage}
+      </div>
+    {/if}
+
+    {#if step === "email"}
+      <form onsubmit={requestOTP} class="space-y-6">
+        <div>
+          <label
+            for="email"
+            class="block text-sm font-medium text-gray-300 mb-2"
+            >Dojang Email</label
+          >
+          <div class="relative">
+            <div
+              class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-500"
+            >
+              <Mail size={18} />
+            </div>
+            <input
+              type="email"
+              id="email"
+              bind:value={email}
+              required
+              class="w-full pl-10 pr-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
+              placeholder="saidi@bandongryok.com"
+            />
+          </div>
+        </div>
+        <button
+          type="submit"
+          disabled={loading}
+          class="w-full bg-primary text-white font-bold py-3 rounded-lg hover:bg-primary/90 transition-colors uppercase tracking-wider disabled:opacity-50"
+        >
+          {loading ? "Sending Code..." : "Send Login Code"}
+        </button>
+      </form>
+    {:else}
+      <form onsubmit={verifyOTP} class="space-y-6">
+        <div>
+          <label for="otp" class="block text-sm font-medium text-gray-300 mb-2"
+            >6-Digit Secure Code</label
+          >
+          <div class="relative">
+            <div
+              class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-500"
+            >
+              <KeyRound size={18} />
+            </div>
+            <input
+              type="text"
+              id="otp"
+              bind:value={otp}
+              required
+              maxlength="6"
+              class="w-full pl-10 pr-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white font-mono text-center text-xl tracking-widest focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
+              placeholder="000000"
+            />
+          </div>
+        </div>
+        <button
+          type="submit"
+          disabled={loading}
+          class="w-full bg-primary text-white font-bold py-3 rounded-lg hover:bg-primary/90 transition-colors uppercase tracking-wider disabled:opacity-50"
+        >
+          {loading ? "Verifying..." : "Access Dashboard"}
+        </button>
+        <button
+          type="button"
+          onclick={() => {
+            step = "email";
+            errorMessage = "";
+            otp = "";
+          }}
+          class="w-full text-gray-400 text-sm hover:text-white transition-colors"
+        >
+          ← Back to email
+        </button>
+      </form>
+    {/if}
   </div>
 </div>

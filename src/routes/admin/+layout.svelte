@@ -1,7 +1,13 @@
 <script lang="ts">
+  import { page } from "$app/state";
   import type { Snippet } from "svelte";
   import "../../app.css";
   let { children }: { children: Snippet } = $props();
+
+  const navItems = [
+    { href: "/admin", label: "Student Roster" },
+    { href: "/admin/students", label: "+ Add Student" },
+  ];
 </script>
 
 <div class="min-h-screen bg-gray-50 flex flex-col md:flex-row">
@@ -21,12 +27,17 @@
     </div>
 
     <nav class="space-y-2 flex-1">
-      <a
-        href="/admin/students"
-        class="block px-4 py-3 rounded-lg bg-primary/20 text-primary font-bold transition-colors"
-      >
-        Manage Students
-      </a>
+      {#each navItems as item}
+        <a
+          href={item.href}
+          class="block px-4 py-3 rounded-lg font-bold transition-colors text-sm
+            {page.url.pathname === item.href
+            ? 'bg-primary/20 text-primary'
+            : 'text-gray-300 hover:bg-white/10 hover:text-white'}"
+        >
+          {item.label}
+        </a>
+      {/each}
     </nav>
 
     <div class="mt-auto pt-6 border-t border-white/10">

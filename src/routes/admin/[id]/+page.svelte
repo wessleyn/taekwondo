@@ -18,12 +18,17 @@
   }>();
 
   const beltOptions = [
-    { rank: "Black Belt (Dan)", order: 1 },
-    { rank: "Red Belt", order: 2 },
-    { rank: "Blue Belt", order: 3 },
-    { rank: "Green Belt", order: 4 },
-    { rank: "Yellow Belt", order: 5 },
-    { rank: "White Belt", order: 6 },
+    { rank: "Black Belt", order: 1 },
+    { rank: "Black Stripe", order: 2 },
+    { rank: "Red Belt", order: 3 },
+    { rank: "Red Stripe", order: 4 },
+    { rank: "Blue Belt", order: 5 },
+    { rank: "Blue Stripe", order: 6 },
+    { rank: "Green Belt", order: 7 },
+    { rank: "Green Stripe", order: 8 },
+    { rank: "Yellow Belt", order: 9 },
+    { rank: "Yellow Stripe", order: 10 },
+    { rank: "White Belt", order: 11 },
   ];
 
   let belt_rank = $state(untrack(() => data.student.belt_rank));

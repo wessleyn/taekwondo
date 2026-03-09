@@ -11,11 +11,16 @@
   }>();
 
   const beltColors: Record<string, string> = {
-    "Black Belt (Dan)": "bg-black text-white",
+    "Black Belt": "bg-black text-white",
+    "Black Stripe": "bg-red-900 text-white",
     "Red Belt": "bg-red-600 text-white",
+    "Red Stripe": "bg-purple-700 text-white",
     "Blue Belt": "bg-blue-600 text-white",
+    "Blue Stripe": "bg-teal-600 text-white",
     "Green Belt": "bg-green-600 text-white",
+    "Green Stripe": "bg-lime-500 text-black",
     "Yellow Belt": "bg-yellow-400 text-black",
+    "Yellow Stripe": "bg-yellow-200 text-black border border-yellow-400",
     "White Belt": "bg-gray-100 text-gray-800 border border-gray-300",
   };
 

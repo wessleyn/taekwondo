@@ -13,11 +13,19 @@
 
   const beltDefinitions = [
     {
-      level: "Black Belt (Dan)",
+      level: "Black Belt",
       meaning:
         "Signifies maturity and proficiency in Taekwondo. Impervious to darkness and fear.",
       colorClass: "bg-black text-white",
       borderClass: "border-black",
+      icon: Shield,
+    },
+    {
+      level: "Black Stripe",
+      meaning:
+        "Approaching black belt — the student has mastered red belt and stands at the threshold.",
+      colorClass: "bg-red-900 text-white",
+      borderClass: "border-red-900",
       icon: Shield,
     },
     {
@@ -29,11 +37,27 @@
       icon: TriangleAlert,
     },
     {
+      level: "Red Stripe",
+      meaning:
+        "Blue-red transition — the student's power increases as they near the red belt level.",
+      colorClass: "bg-purple-700 text-white",
+      borderClass: "border-purple-700",
+      icon: TriangleAlert,
+    },
+    {
       level: "Blue Belt",
       meaning:
         "Signifies the Heaven, towards which the plant matures into a towering tree.",
       colorClass: "bg-blue-600 text-white",
       borderClass: "border-blue-600",
+      icon: Cloud,
+    },
+    {
+      level: "Blue Stripe",
+      meaning:
+        "Green-blue transition — the student's knowledge deepens as they reach toward the sky.",
+      colorClass: "bg-teal-600 text-white",
+      borderClass: "border-teal-600",
       icon: Cloud,
     },
     {
@@ -45,11 +69,27 @@
       icon: Leaf,
     },
     {
+      level: "Green Stripe",
+      meaning:
+        "Yellow-green transition — the foundations are set and the student begins to grow.",
+      colorClass: "bg-lime-500 text-black",
+      borderClass: "border-lime-500",
+      icon: Leaf,
+    },
+    {
       level: "Yellow Belt",
       meaning:
         "Signifies the Earth, from which a plant sprouts and takes root as the foundation is laid.",
       colorClass: "bg-yellow-400 text-black",
       borderClass: "border-yellow-400",
+      icon: Mountain,
+    },
+    {
+      level: "Yellow Stripe",
+      meaning:
+        "The first step — the beginner has shown commitment and earned their first stripe.",
+      colorClass: "bg-yellow-200 text-black border border-yellow-400",
+      borderClass: "border-yellow-300",
       icon: Mountain,
     },
     {

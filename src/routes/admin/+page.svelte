@@ -20,18 +20,18 @@
   };
 
   type Student = (typeof data.students)[number];
-  type SortKey = 'name' | 'belt_order' | 'date_joined';
+  type SortKey = "name" | "belt_order" | "date_joined";
 
   let search = $state("");
-  let sortKey = $state<SortKey>('belt_order');
-  let sortDir = $state<'asc' | 'desc'>('asc');
+  let sortKey = $state<SortKey>("belt_order");
+  let sortDir = $state<"asc" | "desc">("asc");
 
   function toggleSort(key: SortKey) {
     if (sortKey === key) {
-      sortDir = sortDir === 'asc' ? 'desc' : 'asc';
+      sortDir = sortDir === "asc" ? "desc" : "asc";
     } else {
       sortKey = key;
-      sortDir = 'asc';
+      sortDir = "asc";
     }
   }
 
@@ -39,19 +39,19 @@
     const q = search.trim().toLowerCase();
     const list: Student[] = q
       ? data.students.filter(
-          (s) =>
+          (s: Student) =>
             s.name.toLowerCase().includes(q) ||
             s.belt_rank.toLowerCase().includes(q),
         )
       : [...data.students];
 
     return list.sort((a, b) => {
-      let av = a[sortKey] ?? '';
-      let bv = b[sortKey] ?? '';
-      if (typeof av === 'string') av = av.toLowerCase();
-      if (typeof bv === 'string') bv = bv.toLowerCase();
-      if (av < bv) return sortDir === 'asc' ? -1 : 1;
-      if (av > bv) return sortDir === 'asc' ? 1 : -1;
+      let av = a[sortKey] ?? "";
+      let bv = b[sortKey] ?? "";
+      if (typeof av === "string") av = av.toLowerCase();
+      if (typeof bv === "string") bv = bv.toLowerCase();
+      if (av < bv) return sortDir === "asc" ? -1 : 1;
+      if (av > bv) return sortDir === "asc" ? 1 : -1;
       return 0;
     });
   });
@@ -98,36 +98,56 @@
           <th class="px-6 py-4">
             <button
               type="button"
-              onclick={() => toggleSort('name')}
+              onclick={() => toggleSort("name")}
               class="inline-flex items-center gap-1 hover:text-secondary transition-colors"
             >
               Student
-              <span class="text-[10px] {sortKey === 'name' ? 'text-primary' : 'opacity-30'}">
-                {sortKey === 'name' ? (sortDir === 'asc' ? '▲' : '▼') : '⇅'}
+              <span
+                class="text-[10px] {sortKey === 'name'
+                  ? 'text-primary'
+                  : 'opacity-30'}"
+              >
+                {sortKey === "name" ? (sortDir === "asc" ? "▲" : "▼") : "⇅"}
               </span>
             </button>
           </th>
           <th class="px-6 py-4">
             <button
               type="button"
-              onclick={() => toggleSort('belt_order')}
+              onclick={() => toggleSort("belt_order")}
               class="inline-flex items-center gap-1 hover:text-secondary transition-colors"
             >
               Belt Rank
-              <span class="text-[10px] {sortKey === 'belt_order' ? 'text-primary' : 'opacity-30'}">
-                {sortKey === 'belt_order' ? (sortDir === 'asc' ? '▲' : '▼') : '⇅'}
+              <span
+                class="text-[10px] {sortKey === 'belt_order'
+                  ? 'text-primary'
+                  : 'opacity-30'}"
+              >
+                {sortKey === "belt_order"
+                  ? sortDir === "asc"
+                    ? "▲"
+                    : "▼"
+                  : "⇅"}
               </span>
             </button>
           </th>
           <th class="px-6 py-4 hidden sm:table-cell">
             <button
               type="button"
-              onclick={() => toggleSort('date_joined')}
+              onclick={() => toggleSort("date_joined")}
               class="inline-flex items-center gap-1 hover:text-secondary transition-colors"
             >
               Date Joined
-              <span class="text-[10px] {sortKey === 'date_joined' ? 'text-primary' : 'opacity-30'}">
-                {sortKey === 'date_joined' ? (sortDir === 'asc' ? '▲' : '▼') : '⇅'}
+              <span
+                class="text-[10px] {sortKey === 'date_joined'
+                  ? 'text-primary'
+                  : 'opacity-30'}"
+              >
+                {sortKey === "date_joined"
+                  ? sortDir === "asc"
+                    ? "▲"
+                    : "▼"
+                  : "⇅"}
               </span>
             </button>
           </th>

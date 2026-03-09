@@ -3,27 +3,16 @@
   Contact / booking appointment form 
 -->
 <script lang="ts">
+  import { enhance } from "$app/forms";
   import SectionHeading from "$lib/components/SectionHeading.svelte";
   import { brand, contact, instructor, schedule } from "$lib/site-config";
 
-  let name = $state("");
-  let phone = $state("");
-  let date = $state("");
-  let classType = $state("taekwondo");
-  let submitted = $state(false);
+  let { form = null } = $props<{
+    form?: { success?: boolean; error?: string } | null;
+  }>();
 
-  function handleSubmit(e: SubmitEvent) {
-    e.preventDefault();
-    submitted = true;
-    // Reset after 3s
-    setTimeout(() => {
-      submitted = false;
-      name = "";
-      phone = "";
-      date = "";
-      classType = "karate";
-    }, 3000);
-  }
+  let classType = $state("taekwondo");
+  let loading = $state(false);
 </script>
 
 <section id="contact" class="py-20 lg:py-28 bg-secondary text-white">
@@ -98,31 +87,67 @@
 
       <!-- Right: Form -->
       <div class="bg-quaternary rounded-2xl p-8 lg:p-10">
-        {#if submitted}
+        {#if form?.success}
           <div class="text-center py-12">
             <span class="text-5xl block mb-4">✅</span>
             <h3 class="text-2xl font-bold text-white mb-2">Thank You!</h3>
-            <p class="text-gray-400">We'll contact you soon.</p>
+            <p class="text-gray-400">
+              We'll be in touch soon — check your email.
+            </p>
           </div>
         {:else}
-          <form onsubmit={handleSubmit} class="space-y-5">
+          {#if form?.error}
+            <div
+              class="mb-5 p-4 bg-red-500/10 border border-red-500/40 rounded-lg text-red-400 text-sm font-medium"
+            >
+              {form.error}
+            </div>
+          {/if}
+
+          <form
+            method="POST"
+            use:enhance={() => {
+              loading = true;
+              return async ({ update }) => {
+                await update();
+                loading = false;
+              };
+            }}
+            class="space-y-5"
+          >
             <div>
               <label
                 for="name"
                 class="block text-xs uppercase tracking-wider text-gray-400 mb-1"
+                >Name *</label
               >
-                Name *
-              </label>
               <input
                 id="name"
+                name="name"
                 type="text"
-                bind:value={name}
                 required
                 placeholder="Your full name"
                 class="w-full bg-secondary border border-white/10 rounded-lg px-4 py-3
-								       text-white placeholder:text-gray-500 text-sm
-								       focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary
-								       transition-colors"
+                       text-white placeholder:text-gray-500 text-sm
+                       focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
+              />
+            </div>
+
+            <div>
+              <label
+                for="email"
+                class="block text-xs uppercase tracking-wider text-gray-400 mb-1"
+                >Email *</label
+              >
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                placeholder="you@example.com"
+                class="w-full bg-secondary border border-white/10 rounded-lg px-4 py-3
+                       text-white placeholder:text-gray-500 text-sm
+                       focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
               />
             </div>
 
@@ -130,19 +155,16 @@
               <label
                 for="phone"
                 class="block text-xs uppercase tracking-wider text-gray-400 mb-1"
+                >Phone Number</label
               >
-                Phone Number *
-              </label>
               <input
                 id="phone"
+                name="phone"
                 type="tel"
-                bind:value={phone}
-                required
-                placeholder="+1 (555) 000-0000"
+                placeholder="+27 00 000 0000"
                 class="w-full bg-secondary border border-white/10 rounded-lg px-4 py-3
-								       text-white placeholder:text-gray-500 text-sm
-								       focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary
-								       transition-colors"
+                       text-white placeholder:text-gray-500 text-sm
+                       focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
               />
             </div>
 
@@ -150,18 +172,15 @@
               <label
                 for="date"
                 class="block text-xs uppercase tracking-wider text-gray-400 mb-1"
+                >Preferred Date</label
               >
-                Preferred Date *
-              </label>
               <input
                 id="date"
+                name="date"
                 type="date"
-                bind:value={date}
-                required
                 class="w-full bg-secondary border border-white/10 rounded-lg px-4 py-3
-								       text-white text-sm
-								       focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary
-								       transition-colors"
+                       text-white text-sm
+                       focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
               />
             </div>
 
@@ -169,16 +188,15 @@
               <label
                 for="classType"
                 class="block text-xs uppercase tracking-wider text-gray-400 mb-1"
+                >Type of Class</label
               >
-                Type of Class
-              </label>
               <select
                 id="classType"
+                name="classType"
                 bind:value={classType}
                 class="w-full bg-secondary border border-white/10 rounded-lg px-4 py-3
-								       text-white text-sm appearance-none
-								       focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary
-								       transition-colors"
+                       text-white text-sm appearance-none
+                       focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
               >
                 <option value="taekwondo">ITF Taekwondo</option>
                 <option value="private">Private Lesson</option>
@@ -191,13 +209,30 @@
               </select>
             </div>
 
+            <div>
+              <label
+                for="message"
+                class="block text-xs uppercase tracking-wider text-gray-400 mb-1"
+                >Message</label
+              >
+              <textarea
+                id="message"
+                name="message"
+                rows="3"
+                placeholder="Any questions or info for the instructor..."
+                class="w-full bg-secondary border border-white/10 rounded-lg px-4 py-3
+                       text-white placeholder:text-gray-500 text-sm resize-none
+                       focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
+              ></textarea>
+            </div>
+
             <button
               type="submit"
+              disabled={loading}
               class="w-full py-3 px-6 rounded-lg text-sm font-semibold uppercase tracking-wider
-							       bg-primary text-white hover:bg-primary-dark
-							       transition-colors cursor-pointer"
+                     bg-primary text-white hover:bg-primary-dark transition-colors cursor-pointer disabled:opacity-60"
             >
-              Book Appointment
+              {loading ? "Sending..." : "Book Appointment"}
             </button>
           </form>
         {/if}

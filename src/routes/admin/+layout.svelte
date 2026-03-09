@@ -3,6 +3,7 @@
   import { page } from "$app/state";
   import { supabase } from "$lib/supabaseClient";
   import type { Snippet } from "svelte";
+  import { untrack } from "svelte";
   import "../../app.css";
 
   let {
@@ -12,12 +13,13 @@
 
   const navItems = [
     { href: "/admin", label: "Roster" },
+    { href: "/admin/bookings", label: "Bookings" },
     { href: "/admin/students", label: "+ Add Student" },
   ];
 
   let mobileOpen = $state(false);
   // Seed from server — no flash, no client round-trip needed
-  let userEmail = $state(data.userEmail);
+  let userEmail = $state(untrack(() => data.userEmail));
 
   // Only needed to catch client-side sign-out
   $effect(() => {

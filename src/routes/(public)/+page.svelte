@@ -14,6 +14,8 @@
   import TailoredClasses from "$lib/sections/TailoredClasses.svelte";
   import Testimonials from "$lib/sections/Testimonials.svelte";
   import { brand } from "$lib/site-config";
+
+  let { form } = $props();
 </script>
 
 <svelte:head>
@@ -29,5 +31,5 @@
 <Pricing />
 <Testimonials />
 <Schedule />
-<BookingForm />
+<BookingForm {form} />
 <Gallery />
